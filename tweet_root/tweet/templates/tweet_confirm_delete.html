@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %} Chai {% endblock %}
+
+
+{% block content %} 
+
+    <h2> Are you Sure you want to delete the Tweet </h2>
+
+    <!--  With multipart our form could also accept images -->
+    <form class="form" method = "POST">
+        {% csrf_token %}
+        <button class="btn btn-danger" type="submit"> Delete </button>
+        <a class="btn btn-success"href ="{% url 'tweet_list' %}"> Back to Main Page </a>
+    </form>
+
+{% endblock %}

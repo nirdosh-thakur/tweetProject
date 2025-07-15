@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %} 
+    Login 
+{% endblock %}
+
+{% block content %} 
+
+    <h2> 
+        LogIn Form
+    </h2>
+
+    <!--  With multipart our form could also accept images -->
+    <form class="form" method = "POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button class="btn btn-primary" type="submit"> LogIn </button>
+    </form>
+
+    <p> 
+        Dont have an account? 
+        <a href ="{% url 'register' %}"> Register Here  </a> 
+    </p>
+
+{% endblock %}

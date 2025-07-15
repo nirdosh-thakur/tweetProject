@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %} Chai {% endblock %}
+
+{% block content %} 
+
+    <h2> 
+        {% if form.instance.pk %} 
+            Edit the Tweet 
+        {% else %} 
+            Create New Tweet 
+        {% endif %}
+    </h2>
+
+    <!--  With multipart our form could also accept images -->
+    <form class="form" method = "POST" enctype = "multipart/form-data">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button class="btn btn-warning" type="submit"> Submit </button>
+    </form>
+
+    <a href ="{% url 'tweet_list' %}"> Back to Main Page </a>
+
+{% endblock %}

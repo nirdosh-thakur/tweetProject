@@ -31,6 +31,18 @@
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
+      <a href="{% url 'tweet_list' %}" class="mx-2 btn btn-primary"> Home </a>
+      {% if  user.is_authenticated %}
+        <form method="POST" action={% url 'logout' %}>
+          {% csrf_token %}
+          <button class="mx-2 btn btn-danger" type="submit"> LogOut </button>
+        </form>
+      {% else %}
+        <form method="POST" action={% url 'login' %}>
+          {% csrf_token %}
+          <button class="mx-2 btn btn-success" type="submit"> LogIn </button>
+        </form>
+      {% endif %}
     </div>
   </div>
 </nav>
